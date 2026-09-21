@@ -99,18 +99,39 @@
     display:flex;
     pointer-events:none;
   }
+  .curtain-rod{
+    position:absolute;
+    top:0; left:0; right:0;
+    height:12px;
+    z-index:2;
+    background: linear-gradient(180deg, #f6dd9c, #c9a24a 45%, #8a6224 100%);
+    box-shadow: 0 3px 6px rgba(107,61,36,0.4);
+    animation: rodFade 1.3s ease .45s both;
+  }
+  .curtain-rod .finial{
+    position:absolute;
+    top:-6px;
+    width:22px; height:22px;
+    border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #fff3d6, #c9a24a 55%, #8a6224 100%);
+    box-shadow: 0 2px 4px rgba(107,61,36,0.45);
+  }
+  .curtain-rod .finial.l{ left:-6px; }
+  .curtain-rod .finial.r{ right:-6px; }
+  @keyframes rodFade{ 0%, 65%{ opacity:1; } 100%{ opacity:0; } }
   .curtain-panel{
     width:50%;
     height:100%;
     position:relative;
     background:
-      repeating-linear-gradient(98deg,
-        rgba(255,255,255,0) 0px,
-        rgba(255,255,255,0.4) 7px,
-        rgba(255,255,255,0) 15px,
-        rgba(107,61,36,0.10) 24px,
-        rgba(107,61,36,0.02) 30px,
-        rgba(255,255,255,0) 34px),
+      repeating-linear-gradient(94deg,
+        rgba(255,255,255,0.6) 0px,
+        rgba(255,255,255,0.15) 9px,
+        rgba(107,61,36,0.06) 18px,
+        rgba(107,61,36,0.34) 28px,
+        rgba(107,61,36,0.06) 38px,
+        rgba(255,255,255,0.15) 47px,
+        rgba(255,255,255,0.6) 56px),
       radial-gradient(120% 70% at 15% 0%, rgba(255,255,255,0.5), transparent 60%),
       linear-gradient(100deg, #fbe8cf, #f3cf9e 55%, #e3a86a 100%);
     animation: curtainOpenL 1.3s cubic-bezier(.62,0,.2,1) .45s both;
@@ -414,6 +435,10 @@
 
   <div class="confetti" id="confetti" aria-hidden="true"></div>
   <div class="curtain" aria-hidden="true">
+    <div class="curtain-rod">
+      <span class="finial l"></span>
+      <span class="finial r"></span>
+    </div>
     <div class="curtain-panel left">
       <svg class="tie" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
         <path d="M28,28 C20,20 24,10 34,12 C42,14 44,24 36,30 C30,34 24,32 28,28 Z" fill="#f3cf9e" opacity="0.55"/>
