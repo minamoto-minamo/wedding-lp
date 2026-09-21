@@ -103,87 +103,17 @@ html,body{
   100% { transform: translate(var(--ex,-15px), 112vh) rotate(var(--startZ,0deg)) perspective(420px) rotateY(calc(var(--startY,0deg) + var(--ey,380deg))) scale(var(--scale,1)); opacity:0; }
 }
 
-/* ---- 初回だけ:ガーデンドレープが開く演出 ---- */
+/* ---- 初回だけ:カーテンが開く演出 ---- */
 .curtain{
   position:fixed;
   inset:0;
   z-index:50;
-  display:flex;
-  pointer-events:none;
-}
-.curtain-rod{
-  position:absolute;
-  top:0; left:0; right:0;
-  height:12px;
-  z-index:2;
-  background: linear-gradient(180deg, #f6dd9c, #c9a24a 45%, #8a6224 100%);
-  box-shadow: 0 3px 6px rgba(107,61,36,0.4);
-  animation: rodFade 1.3s ease .45s both;
-}
-.curtain-rod .finial{
-  position:absolute;
-  top:-6px;
-  width:22px; height:22px;
-  border-radius:50%;
-  background: radial-gradient(circle at 35% 30%, #fff3d6, #c9a24a 55%, #8a6224 100%);
-  box-shadow: 0 2px 4px rgba(107,61,36,0.45);
-}
-.curtain-rod .finial.l{ left:-6px; }
-.curtain-rod .finial.r{ right:-6px; }
-@keyframes rodFade{ 0%, 65%{ opacity:1; } 100%{ opacity:0; } }
-.curtain-panel{
-  width:50%;
+  width:100%;
   height:100%;
-  position:relative;
-  background:
-    repeating-linear-gradient(94deg,
-      rgba(255,255,255,0.6) 0px,
-      rgba(255,255,255,0.15) 9px,
-      rgba(107,61,36,0.06) 18px,
-      rgba(107,61,36,0.34) 28px,
-      rgba(107,61,36,0.06) 38px,
-      rgba(255,255,255,0.15) 47px,
-      rgba(255,255,255,0.6) 56px),
-    radial-gradient(120% 70% at 15% 0%, rgba(255,255,255,0.5), transparent 60%),
-    linear-gradient(100deg, #fbe8cf, #f3cf9e 55%, #e3a86a 100%);
-  animation: curtainOpenL 1.3s cubic-bezier(.62,0,.2,1) .45s both;
+  pointer-events:none;
+  animation: curtainFade 1.3s ease .45s both;
 }
-.curtain-panel.left{
-  box-shadow: inset -34px 0 55px -30px rgba(107,61,36,0.32);
-  clip-path: polygon(
-    0% 5%, 18% 0%, 36% 5%, 54% 0.5%, 72% 5%, 90% 1%, 100% 4%,
-    100% 68%, 86% 78%, 100% 88%,
-    100% 100%, 0% 100%
-  );
-}
-.curtain-panel.right{
-  box-shadow: inset 34px 0 55px -30px rgba(107,61,36,0.32);
-  clip-path: polygon(
-    100% 5%, 82% 0%, 64% 5%, 46% 0.5%, 28% 5%, 10% 1%, 0% 4%,
-    0% 68%, 14% 78%, 0% 88%,
-    0% 100%, 100% 100%
-  );
-  animation-name: curtainOpenR;
-}
-.curtain-panel::after{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  width:3px;
-  background: linear-gradient(180deg, #f6dd9c, #c9a24a 45%, #a97d34 55%, #f6dd9c);
-  box-shadow: 0 0 4px rgba(201,162,74,0.5);
-}
-.curtain-panel.left::after{ right:0; }
-.curtain-panel.right::after{ left:0; }
-.curtain-panel .tie{
-  position:absolute;
-  bottom:14%;
-  width:56px; height:56px;
-}
-.curtain-panel.left .tie{ right:-12px; }
-.curtain-panel.right .tie{ left:-12px; }
-@keyframes curtainOpenL{ from{ transform:translateX(0); } to{ transform:translateX(-100%); } }
-@keyframes curtainOpenR{ from{ transform:translateX(0); } to{ transform:translateX(100%); } }
+@keyframes curtainFade{ 0%, 60%{ opacity:1; } 100%{ opacity:0; } }
 
 /* ---- 初回だけ:花びらのフラワーシャワー ---- */
 .confetti{ position:fixed; inset:0; z-index:40; pointer-events:none; overflow:hidden; }

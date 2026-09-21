@@ -1,0 +1,339 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" width="800" height="720">
+  <defs>
+
+    <!-- ===== 布のベースカラー (左: 外→内) ===== -->
+    <linearGradient id="fabL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#e8c4a0"/>
+      <stop offset="18%"  stop-color="#dba060"/>
+      <stop offset="48%"  stop-color="#c47830"/>
+      <stop offset="75%"  stop-color="#a85c18"/>
+      <stop offset="100%" stop-color="#8a4410"/>
+    </linearGradient>
+    <!-- 布のベースカラー (右: 内→外) -->
+    <linearGradient id="fabR" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%"   stop-color="#e8c4a0"/>
+      <stop offset="18%"  stop-color="#dba060"/>
+      <stop offset="48%"  stop-color="#c47830"/>
+      <stop offset="75%"  stop-color="#a85c18"/>
+      <stop offset="100%" stop-color="#8a4410"/>
+    </linearGradient>
+
+    <!-- ===== なめらかなプリーツ模様 (50px周期) ===== -->
+    <linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.30"/>
+      <stop offset="18%"  stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="38%"  stop-color="#000000" stop-opacity="0.00"/>
+      <stop offset="55%"  stop-color="#000000" stop-opacity="0.18"/>
+      <stop offset="72%"  stop-color="#000000" stop-opacity="0.06"/>
+      <stop offset="88%"  stop-color="#ffffff" stop-opacity="0.00"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.22"/>
+    </linearGradient>
+    <pattern id="pleat" x="0" y="0" width="50" height="720" patternUnits="userSpaceOnUse">
+      <rect width="50" height="720" fill="url(#pg)"/>
+    </pattern>
+
+    <!-- ===== 上からの光 (ロッド直下) ===== -->
+    <linearGradient id="topLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.50"/>
+      <stop offset="12%"  stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="28%"  stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- ===== 内端の暗い影 (左パネル右端) ===== -->
+    <linearGradient id="shadL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="72%"  stop-color="rgba(30,10,0,0)"/>
+      <stop offset="90%"  stop-color="rgba(30,10,0,0.38)"/>
+      <stop offset="100%" stop-color="rgba(30,10,0,0.65)"/>
+    </linearGradient>
+    <linearGradient id="shadR" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="72%"  stop-color="rgba(30,10,0,0)"/>
+      <stop offset="90%"  stop-color="rgba(30,10,0,0.38)"/>
+      <stop offset="100%" stop-color="rgba(30,10,0,0.65)"/>
+    </linearGradient>
+
+    <!-- ===== カーテンロッドのグラデーション ===== -->
+    <linearGradient id="rod" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#f4e680"/>
+      <stop offset="12%"  stop-color="#fdf6b0"/>
+      <stop offset="48%"  stop-color="#c8a040"/>
+      <stop offset="82%"  stop-color="#8c6818"/>
+      <stop offset="100%" stop-color="#a88228"/>
+    </linearGradient>
+
+    <!-- ===== 縁のゴールドトリム ===== -->
+    <linearGradient id="trim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#f0e060"/>
+      <stop offset="25%"  stop-color="#faf2a0"/>
+      <stop offset="52%"  stop-color="#c09830"/>
+      <stop offset="78%"  stop-color="#8c6818"/>
+      <stop offset="100%" stop-color="#c09830"/>
+    </linearGradient>
+
+    <!-- ===== タイバック (サッシュ布) のグラデーション ===== -->
+    <linearGradient id="sashG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#f0d080"/>
+      <stop offset="30%"  stop-color="#d49030"/>
+      <stop offset="65%"  stop-color="#b87020"/>
+      <stop offset="100%" stop-color="#c88830"/>
+    </linearGradient>
+    <linearGradient id="sashShine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.50"/>
+      <stop offset="40%"  stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- ===== タイバックの影 ===== -->
+    <filter id="sashShadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="3" dy="5" stdDeviation="6" flood-color="rgba(60,24,0,0.50)"/>
+    </filter>
+
+    <!-- ===== 左パネルのシルエット ===== -->
+    <!-- スカラップ (均等な半円): 上部, タイバック, スウィング -->
+    <clipPath id="cL">
+      <path d="
+        M 0,30
+        Q 20,2  40,30  Q 60,2  80,30
+        Q 100,2 120,30 Q 140,2 160,30
+        Q 180,2 200,30 Q 220,2 240,30
+        Q 260,2 280,30 Q 300,2 320,28
+        Q 340,2 365,20
+        L 393,10
+        L 393,370
+        C 384,390 368,416 346,436
+        C 326,454 306,462 294,464
+        C 308,472 334,488 360,508
+        C 378,522 393,538 393,552
+        L 393,720
+        L 0,720
+        Z
+      "/>
+    </clipPath>
+
+    <!-- ===== 右パネルのシルエット ===== -->
+    <clipPath id="cR">
+      <path d="
+        M 800,30
+        Q 780,2  760,30 Q 740,2  720,30
+        Q 700,2  680,30 Q 660,2  640,30
+        Q 620,2  600,30 Q 580,2  560,30
+        Q 540,2  520,30 Q 500,2  480,28
+        Q 460,2  435,20
+        L 407,10
+        L 407,370
+        C 416,390 432,416 454,436
+        C 474,454 494,462 506,464
+        C 492,472 466,488 440,508
+        C 422,522 407,538 407,552
+        L 407,720
+        L 800,720
+        Z
+      "/>
+    </clipPath>
+
+  </defs>
+
+  <!-- ══════════════════════════════
+       左カーテンパネル
+  ══════════════════════════════ -->
+  <g clip-path="url(#cL)">
+    <!-- 布ベース -->
+    <rect x="0" y="0" width="400" height="720" fill="url(#fabL)"/>
+    <!-- なめらかなプリーツ -->
+    <rect x="0" y="0" width="400" height="720" fill="url(#pleat)"/>
+    <!-- 上からの光 -->
+    <rect x="0" y="0" width="400" height="720" fill="url(#topLight)"/>
+    <!-- 内端の影 -->
+    <rect x="0" y="0" width="400" height="720" fill="url(#shadL)"/>
+  </g>
+  <!-- 内端のゴールドトリム -->
+  <g clip-path="url(#cL)">
+    <rect x="387" y="0" width="7" height="720" fill="url(#trim)"/>
+    <rect x="387" y="0" width="2" height="720" fill="rgba(255,255,255,0.28)"/>
+  </g>
+
+  <!-- ══════════════════════════════
+       右カーテンパネル
+  ══════════════════════════════ -->
+  <g clip-path="url(#cR)">
+    <rect x="400" y="0" width="400" height="720" fill="url(#fabR)"/>
+    <rect x="400" y="0" width="400" height="720" fill="url(#pleat)"/>
+    <rect x="400" y="0" width="400" height="720" fill="url(#topLight)"/>
+    <rect x="400" y="0" width="400" height="720" fill="url(#shadR)"/>
+  </g>
+  <g clip-path="url(#cR)">
+    <rect x="406" y="0" width="7" height="720" fill="url(#trim)"/>
+    <rect x="409" y="0" width="2" height="720" fill="rgba(255,255,255,0.28)"/>
+  </g>
+
+  <!-- ══════════════════════════════
+       カーテンロッド
+  ══════════════════════════════ -->
+  <rect x="0"  y="0"  width="800" height="24" rx="4" fill="url(#rod)"/>
+  <!-- ハイライトライン -->
+  <rect x="8"  y="3"  width="784" height="5"  rx="2" fill="rgba(255,255,255,0.40)"/>
+  <rect x="0"  y="18" width="800" height="4"       fill="rgba(0,0,0,0.20)"/>
+
+  <!-- ロッド端飾り (左) -->
+  <circle cx="20" cy="12" r="18" fill="url(#rod)"/>
+  <circle cx="20" cy="12" r="11" fill="#fdf6b4"/>
+  <circle cx="20" cy="12" r="5"  fill="#c8a040"/>
+  <circle cx="17" cy="9"  r="2"  fill="rgba(255,255,255,0.60)"/>
+  <!-- ロッド端飾り (右) -->
+  <circle cx="780" cy="12" r="18" fill="url(#rod)"/>
+  <circle cx="780" cy="12" r="11" fill="#fdf6b4"/>
+  <circle cx="780" cy="12" r="5"  fill="#c8a040"/>
+  <circle cx="777" cy="9"  r="2"  fill="rgba(255,255,255,0.60)"/>
+
+  <!-- ══════════════════════════════
+       カーテンリング (左: 13個)
+  ══════════════════════════════ -->
+  <g fill="none" stroke="#8a6820" stroke-width="3.2">
+    <ellipse cx="40"  cy="16" rx="7" ry="9"/>
+    <ellipse cx="70"  cy="16" rx="7" ry="9"/>
+    <ellipse cx="100" cy="16" rx="7" ry="9"/>
+    <ellipse cx="130" cy="16" rx="7" ry="9"/>
+    <ellipse cx="160" cy="16" rx="7" ry="9"/>
+    <ellipse cx="190" cy="16" rx="7" ry="9"/>
+    <ellipse cx="220" cy="16" rx="7" ry="9"/>
+    <ellipse cx="250" cy="16" rx="7" ry="9"/>
+    <ellipse cx="280" cy="16" rx="7" ry="9"/>
+    <ellipse cx="308" cy="16" rx="7" ry="9"/>
+    <ellipse cx="334" cy="16" rx="7" ry="9"/>
+    <ellipse cx="358" cy="16" rx="7" ry="9"/>
+    <ellipse cx="380" cy="16" rx="7" ry="9"/>
+  </g>
+  <!-- リング光沢 -->
+  <g fill="none" stroke="#fdf6b4" stroke-width="1.5" opacity="0.70">
+    <ellipse cx="40"  cy="13" rx="4" ry="5"/>
+    <ellipse cx="70"  cy="13" rx="4" ry="5"/>
+    <ellipse cx="100" cy="13" rx="4" ry="5"/>
+    <ellipse cx="130" cy="13" rx="4" ry="5"/>
+    <ellipse cx="160" cy="13" rx="4" ry="5"/>
+    <ellipse cx="190" cy="13" rx="4" ry="5"/>
+    <ellipse cx="220" cy="13" rx="4" ry="5"/>
+    <ellipse cx="250" cy="13" rx="4" ry="5"/>
+    <ellipse cx="280" cy="13" rx="4" ry="5"/>
+    <ellipse cx="308" cy="13" rx="4" ry="5"/>
+    <ellipse cx="334" cy="13" rx="4" ry="5"/>
+    <ellipse cx="358" cy="13" rx="4" ry="5"/>
+    <ellipse cx="380" cy="13" rx="4" ry="5"/>
+  </g>
+
+  <!-- ══════════════════════════════
+       カーテンリング (右: 13個)
+  ══════════════════════════════ -->
+  <g fill="none" stroke="#8a6820" stroke-width="3.2">
+    <ellipse cx="760" cy="16" rx="7" ry="9"/>
+    <ellipse cx="730" cy="16" rx="7" ry="9"/>
+    <ellipse cx="700" cy="16" rx="7" ry="9"/>
+    <ellipse cx="670" cy="16" rx="7" ry="9"/>
+    <ellipse cx="640" cy="16" rx="7" ry="9"/>
+    <ellipse cx="610" cy="16" rx="7" ry="9"/>
+    <ellipse cx="580" cy="16" rx="7" ry="9"/>
+    <ellipse cx="550" cy="16" rx="7" ry="9"/>
+    <ellipse cx="520" cy="16" rx="7" ry="9"/>
+    <ellipse cx="492" cy="16" rx="7" ry="9"/>
+    <ellipse cx="466" cy="16" rx="7" ry="9"/>
+    <ellipse cx="442" cy="16" rx="7" ry="9"/>
+    <ellipse cx="420" cy="16" rx="7" ry="9"/>
+  </g>
+  <g fill="none" stroke="#fdf6b4" stroke-width="1.5" opacity="0.70">
+    <ellipse cx="760" cy="13" rx="4" ry="5"/>
+    <ellipse cx="730" cy="13" rx="4" ry="5"/>
+    <ellipse cx="700" cy="13" rx="4" ry="5"/>
+    <ellipse cx="670" cy="13" rx="4" ry="5"/>
+    <ellipse cx="640" cy="13" rx="4" ry="5"/>
+    <ellipse cx="610" cy="13" rx="4" ry="5"/>
+    <ellipse cx="580" cy="13" rx="4" ry="5"/>
+    <ellipse cx="550" cy="13" rx="4" ry="5"/>
+    <ellipse cx="520" cy="13" rx="4" ry="5"/>
+    <ellipse cx="492" cy="13" rx="4" ry="5"/>
+    <ellipse cx="466" cy="13" rx="4" ry="5"/>
+    <ellipse cx="442" cy="13" rx="4" ry="5"/>
+    <ellipse cx="420" cy="13" rx="4" ry="5"/>
+  </g>
+
+  <!-- ══════════════════════════════
+       左タイバック (シンプルなサッシュ結び)
+       タイバック最深部: x≈294, y≈464
+  ══════════════════════════════ -->
+  <g filter="url(#sashShadow)">
+    <!-- 横帯 (布が引き絞られた部分) -->
+    <path d="
+      M 180,450
+      C 210,444 250,442 294,464
+      C 338,486 370,488 390,484
+      L 390,504
+      C 370,508 336,506 292,484
+      C 248,462 208,464 178,470
+      Z
+    " fill="url(#sashG)"/>
+    <!-- 光沢オーバーレイ -->
+    <path d="
+      M 180,450
+      C 210,444 250,442 294,464
+      C 338,486 370,488 390,484
+      L 390,492
+      C 370,494 338,492 294,470
+      C 250,448 210,448 180,454
+      Z
+    " fill="url(#sashShine)"/>
+
+    <!-- 結び目 (中央の丸みのある塊) -->
+    <ellipse cx="294" cy="474" rx="20" ry="14"
+             fill="#d49030" stroke="#9a6818" stroke-width="1.8"/>
+    <ellipse cx="290" cy="469" rx="10" ry="6"
+             fill="rgba(255,255,255,0.40)"/>
+
+    <!-- テール (下に垂れる布) -->
+    <path d="M 280,484 Q 272,520 266,560 Q 262,590 260,620"
+          fill="none" stroke="#c08020" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 308,484 Q 316,520 320,558 Q 324,588 326,618"
+          fill="none" stroke="#c08020" stroke-width="14" stroke-linecap="round"/>
+    <!-- テールの光沢 -->
+    <path d="M 278,488 Q 270,524 264,564"
+          fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 310,488 Q 318,522 322,562"
+          fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- ══════════════════════════════
+       右タイバック (左右対称)
+       タイバック最深部: x≈506, y≈464
+  ══════════════════════════════ -->
+  <g filter="url(#sashShadow)">
+    <path d="
+      M 620,450
+      C 590,444 550,442 506,464
+      C 462,486 430,488 410,484
+      L 410,504
+      C 430,508 464,506 508,484
+      C 552,462 592,464 622,470
+      Z
+    " fill="url(#sashG)"/>
+    <path d="
+      M 620,450
+      C 590,444 550,442 506,464
+      C 462,486 430,488 410,484
+      L 410,492
+      C 430,494 462,492 506,470
+      C 550,448 590,448 620,454
+      Z
+    " fill="url(#sashShine)"/>
+
+    <ellipse cx="506" cy="474" rx="20" ry="14"
+             fill="#d49030" stroke="#9a6818" stroke-width="1.8"/>
+    <ellipse cx="502" cy="469" rx="10" ry="6"
+             fill="rgba(255,255,255,0.40)"/>
+
+    <path d="M 492,484 Q 484,520 478,560 Q 474,590 472,620"
+          fill="none" stroke="#c08020" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 520,484 Q 528,520 532,558 Q 536,588 538,618"
+          fill="none" stroke="#c08020" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 490,488 Q 482,524 476,564"
+          fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 522,488 Q 530,522 534,562"
+          fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+</svg>
