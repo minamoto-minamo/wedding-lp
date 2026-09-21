@@ -224,12 +224,7 @@ html,body{
   opacity: 0;
   animation: fadeIn 0.6s ease 1.8s both;
 }
-.illustration .line-shape{
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
-  animation: drawLine 0.9s ease 1.8s forwards;
-}
-.illustration .line-shape.b{ animation-delay: 1.92s; }
+.illustration .fill-shape.b{ animation-delay: 1.92s; }
 .illustration .eye{
   opacity: 0;
   animation: fadeIn 0.3s ease 2.65s both;
@@ -245,7 +240,6 @@ html,body{
   0%, 100% { filter: drop-shadow(0 0 0 rgba(201,88,63,0)); }
   50%      { transform: scale(1.07); filter: drop-shadow(0 0 7px rgba(201,88,63,0.4)); }
 }
-@keyframes drawLine{ to { stroke-dashoffset: 0; } }
 @keyframes fadeIn{ to { opacity: 1; } }
 @keyframes tieKnot{
   0%   { opacity:0; transform: scale(0.5); }
