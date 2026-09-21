@@ -108,12 +108,26 @@ html,body{
   position:fixed;
   inset:0;
   z-index:50;
+  display:flex;
+  pointer-events:none;
+}
+.curtain-panel{
+  width:50%;
+  height:100%;
+  overflow:hidden;
+  position:relative;
+}
+.curtain-panel img{
+  position:absolute;
+  top:0; left:0;
   width:100%;
   height:100%;
-  pointer-events:none;
-  animation: curtainFade 1.3s ease .45s both;
+  display:block;
+  animation: curtainOpen 1.3s cubic-bezier(.62,0,.2,1) .45s both;
 }
-@keyframes curtainFade{ 0%, 60%{ opacity:1; } 100%{ opacity:0; } }
+/* 右パネルは左半分の画像をそのまま鏡映しして使う */
+.curtain-panel.right{ transform: scaleX(-1); }
+@keyframes curtainOpen{ from{ transform:translateX(0); } to{ transform:translateX(-100%); } }
 
 /* ---- 初回だけ:花びらのフラワーシャワー ---- */
 .confetti{ position:fixed; inset:0; z-index:40; pointer-events:none; overflow:hidden; }
