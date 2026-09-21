@@ -37,30 +37,13 @@
 
     <div class="illust-wrap">
     <div class="sparkles" id="sparkles" aria-hidden="true"></div>
-    <svg class="illustration" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="向かい合う二羽の小鳥とハートのイラスト">
-      <!-- 左の鳥(右向き) -->
-      <g class="fill-shape a">
-        <path d="M22,50 C10,44 2,46 -4,42 C4,52 8,56 18,56 Z" fill="var(--accent)" opacity="0.55"/>
-        <path d="M22,54 C10,54 2,58 -6,58 C2,66 10,66 20,60 Z" fill="var(--accent)" opacity="0.55"/>
-        <path d="M20,55 C15,38 25,20 45,18 C58,17 68,22 74,30 L86,26 L76,36 C70,44 60,52 46,54 C34,56 24,60 20,55 Z"
-              fill="var(--petal)" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M26,40 C30,28 46,26 52,34 C46,42 32,44 26,40 Z" fill="var(--accent)" opacity="0.5"/>
-      </g>
-      <circle class="eye" cx="62" cy="26" r="2" fill="var(--ink)"/>
-
-      <!-- 右の鳥(左の鳥を鏡映しして左向きに) -->
-      <g class="fill-shape b" transform="translate(200,0) scale(-1,1)">
-        <path d="M22,50 C10,44 2,46 -4,42 C4,52 8,56 18,56 Z" fill="var(--accent)" opacity="0.55"/>
-        <path d="M22,54 C10,54 2,58 -6,58 C2,66 10,66 20,60 Z" fill="var(--accent)" opacity="0.55"/>
-        <path d="M20,55 C15,38 25,20 45,18 C58,17 68,22 74,30 L86,26 L76,36 C70,44 60,52 46,54 C34,56 24,60 20,55 Z"
-              fill="var(--petal)" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M26,40 C30,28 46,26 52,34 C46,42 32,44 26,40 Z" fill="var(--accent)" opacity="0.5"/>
-      </g>
-      <circle class="eye" cx="138" cy="26" r="2" fill="var(--ink)"/>
-
-      <path class="heart-shape" d="M100,42 C96,34 85,36 85,46 C85,58 100,70 100,70 C100,70 115,58 115,46 C115,36 104,34 100,42 Z"
-            fill="var(--gold)" stroke="none"/>
-    </svg>
+    <div class="doves reveal" style="animation-delay:1.8s">
+      <img class="dove mirror" src="assets/dove.svg" alt="向かい合う二羽の鳩のイラスト">
+      <svg class="heart-mini" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12,6.5 C10.5,3 5,4 5,9 C5,14 12,19.5 12,19.5 C12,19.5 19,14 19,9 C19,4 13.5,3 12,6.5 Z" fill="var(--gold)"/>
+      </svg>
+      <img class="dove" src="assets/dove.svg" alt="" aria-hidden="true">
+    </div>
     </div>
 
     <h1 class="reveal" style="animation-delay:2.45s"><span class="nowrap">Happy</span> <span class="nowrap">Wedding</span></h1>
