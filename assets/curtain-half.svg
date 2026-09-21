@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 720" width="400" height="720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 720" width="400" height="720" preserveAspectRatio="xMaxYMid slice">
   <defs>
 
     <!-- ===== 布のベースカラー (外→内) ===== -->
