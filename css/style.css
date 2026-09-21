@@ -257,7 +257,7 @@ h1{
   font-family: "Cormorant Garamond", "Times New Roman", Georgia, serif;
   font-style: italic;
   font-weight: 600;
-  font-size: clamp(38px, 13vw, 66px);
+  font-size: clamp(38px, 13vw, 52px);
   letter-spacing: 0.01em;
   line-height: 1.15;
   margin: 0;
